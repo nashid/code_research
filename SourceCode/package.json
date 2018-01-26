@@ -1,0 +1,24 @@
+{
+  "name": "CodeRepresentation",
+  "version": "0.0.1",
+  "description": "Convert between JavaScript AST and Code.",
+  "main": "tokenize.js",
+  "scripts": {
+    "tokenize": "node tokenize.js",
+    "generate": "node generate.js"
+  },
+  "dependencies": {
+    "acorn": "^5.3.0",
+    "escodegen": "^1.9.0",
+    "rimraf": "^2.6.2"
+  },
+  "engines": {
+    "node": "8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Nancy Pang",
+  "license": "MIT"
+}
