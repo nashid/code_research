@@ -5,4 +5,7 @@ npm tokenize
 npm generate  
 
 # Generate mutations based on correct code  
-npm mutate -n=[number of mutations]  
+n=[number of mutations] npm mutate 
+
+# Workflow  
+Generate mutations for bug pattern => Tokenize and AST => Generate from AST  

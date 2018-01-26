@@ -1,7 +1,6 @@
 const fs = require("fs");
-const parseArgs = require('minimist');
 
-const MutationDir = "./Mutations/";
+const GeneratedSourceDir = "./GeneratedSource/";
 
 function randomURL(){
   var slashes = Math.floor(Math.random() * 5) + 1;
@@ -39,12 +38,11 @@ function randomData(){
   return data;
 }
 
-if(!fs.existsSync(MutationDir)){
-  fs.mkdirSync(MutationDir);
+if(!fs.existsSync(GeneratedSourceDir)){
+  fs.mkdirSync(GeneratedSourceDir);
 }
 
-var argv = parseArgs(process.argv.slice(2));
-var mutationNum = argv['n'];
+var mutationNum = process.env.n;
 
 for(var i = 0; i < mutationNum; i++){
   var g_randomURL = randomURL();
@@ -58,7 +56,7 @@ for(var i = 0; i < mutationNum; i++){
       '\t' + 'dataType: ' + "'" + 'json' + "'" + '\n' +
   '});';  
 
- fs.writeFile(MutationDir + 'buggy_' + i + '.js', buggy, function (err) {
+ fs.writeFile(GeneratedSourceDir + 'buggy_' + i + '.js', buggy, function (err) {
    if (err) throw err;
    console.log('Generated buggy mutation ' + 'buggy_' + i + '.js');
  });
@@ -71,7 +69,7 @@ for(var i = 0; i < mutationNum; i++){
       '\t' + 'dataType: ' + "'" + 'json' + "'" + '\n' +
   '});';  
 
- fs.writeFile(MutationDir + 'correct_' + i + '.js', correct, function (err) {
+ fs.writeFile(GeneratedSourceDir + 'correct_' + i + '.js', correct, function (err) {
    if (err) throw err;
    console.log('Generated correct mutation ' + 'correct_' + i + '.js',);
  });
