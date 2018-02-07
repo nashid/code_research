@@ -2,7 +2,8 @@ const fs = require("fs");
 const escodegen = require("escodegen");
 const rimraf = require('rimraf');
 
-const ASTDir = "./ASTs/";
+const ASTCorrectDir = "./ASTsCorrect/";
+const ASTBuggyDir = "./ASTsBuggy/";
 const TranslatedCodeDir = "./TranslatedCode/";
 
 if(!fs.existsSync(ASTDir)){
@@ -17,7 +18,7 @@ if(fs.existsSync(TranslatedCodeDir)){
 fs.mkdirSync(TranslatedCodeDir);
 
 var translated = [];
-var files = fs.readdirSync(ASTDir);
+var files = fs.readdirSync(ASTCorrectDir);
 files.forEach(file => {
     let name = file.slice(0, -8);
     translated.push(name);

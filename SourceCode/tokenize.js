@@ -2,46 +2,85 @@ const fs = require("fs");
 const acorn = require("acorn");
 const rimraf = require('rimraf');
 
-const GeneratedSourceDir = "./GeneratedSource/";
-const ASTDir = "./ASTs/";
-const TokenDir = "./Tokens/";
+const GeneratedSourceBuggyDir = "./GeneratedSourceBuggy/";
+const GeneratedSourceCorrectDir = "./GeneratedSourceCorrect/";
 
-if(!fs.existsSync(GeneratedSourceDir)){
+const ASTBuggyDir = "./ASTsBuggy/";
+const TokenBuggyDir = "./TokensBuggy/";
+const ASTCorrectDir = "./ASTsCorrect/";
+const TokenCorrectDir = "./TokensCorrect/";
+
+if(!fs.existsSync(GeneratedSourceBuggyDir) || !fs.existsSync(GeneratedSourceCorrectDir)){
   console.log("Please make sure you have source files to tokenize.");
   process.exit(1);
 }
 
-if(fs.existsSync(ASTDir)){
-  rimraf.sync(ASTDir);
+if(fs.existsSync(ASTBuggyDir)){
+  rimraf.sync(ASTBuggyDir);
 }
 
-if(fs.existsSync(TokenDir)){
-  rimraf.sync(TokenDir);
+if(fs.existsSync(TokenBuggyDir)){
+  rimraf.sync(TokenBuggyDir);
 }
 
-fs.mkdirSync(ASTDir);
-fs.mkdirSync(TokenDir);
+if(fs.existsSync(ASTCorrectDir)){
+  rimraf.sync(ASTCorrectDir);
+}
+
+if(fs.existsSync(TokenCorrectDir)){
+  rimraf.sync(TokenCorrectDir);
+}
+
+fs.mkdirSync(ASTBuggyDir);
+fs.mkdirSync(TokenBuggyDir);
+fs.mkdirSync(ASTCorrectDir);
+fs.mkdirSync(TokenCorrectDir);
 
 var sources = [];
-var files = fs.readdirSync(GeneratedSourceDir);
+var files = fs.readdirSync(GeneratedSourceBuggyDir);
 files.forEach(file => {
     let name = file.slice(0, -3);
     sources.push(name);
 });
 
 sources.forEach(function(source){
-    var text = fs.readFileSync(GeneratedSourceDir + source + ".js", "utf-8");
+    var text = fs.readFileSync(GeneratedSourceBuggyDir + source + ".js", "utf-8");
     var tokens = []; 
     var ast = acorn.parse(text, {
        onToken: tokens
     });
 
-    fs.writeFile(ASTDir + source + "_AST.json", JSON.stringify(ast, null, 2), function (err) {
+    fs.writeFile(ASTBuggyDir + source + "_AST.json", JSON.stringify(ast, null, 2), function (err) {
 	    if (err) throw err;
 	    console.log('Created AST for file ' + source);
 	    });
 
-    fs.writeFile(TokenDir + source + "_Tokens.json", JSON.stringify(tokens, null, 2), function (err) {
+    fs.writeFile(TokenBuggyDir + source + "_Tokens.json", JSON.stringify(tokens, null, 2), function (err) {
+	    if (err) throw err;
+	    console.log('Created tokens for file ' + source);
+	    });
+});
+
+sources = [];
+files = fs.readdirSync(GeneratedSourceCorrectDir);
+files.forEach(file => {
+    let name = file.slice(0, -3);
+    sources.push(name);
+});
+
+sources.forEach(function(source){
+    var text = fs.readFileSync(GeneratedSourceCorrectDir + source + ".js", "utf-8");
+    var tokens = []; 
+    var ast = acorn.parse(text, {
+       onToken: tokens
+    });
+
+    fs.writeFile(ASTCorrectDir + source + "_AST.json", JSON.stringify(ast, null, 2), function (err) {
+	    if (err) throw err;
+	    console.log('Created AST for file ' + source);
+	    });
+
+    fs.writeFile(TokenCorrectDir + source + "_Tokens.json", JSON.stringify(tokens, null, 2), function (err) {
 	    if (err) throw err;
 	    console.log('Created tokens for file ' + source);
 	    });

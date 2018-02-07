@@ -1,6 +1,7 @@
 const fs = require("fs");
 
-const GeneratedSourceDir = "./GeneratedSource/";
+const GeneratedSourceCorrectDir = "./GeneratedSourceCorrect/";
+const GeneratedSourceBuggyDir = "./GeneratedSourceBuggy/";
 
 function randomURL(){
   var slashes = Math.floor(Math.random() * 5) + 1;
@@ -38,8 +39,12 @@ function randomData(){
   return data;
 }
 
-if(!fs.existsSync(GeneratedSourceDir)){
-  fs.mkdirSync(GeneratedSourceDir);
+if(!fs.existsSync(GeneratedSourceBuggyDir)){
+  fs.mkdirSync(GeneratedSourceBuggyDir);
+}
+
+if(!fs.existsSync(GeneratedSourceCorrectDir)){
+  fs.mkdirSync(GeneratedSourceCorrectDir);
 }
 
 var mutationNum = process.env.n;
@@ -56,7 +61,7 @@ for(var i = 0; i < mutationNum; i++){
       '\t' + 'dataType: ' + "'" + 'json' + "'" + '\n' +
   '});';  
 
- fs.writeFile(GeneratedSourceDir + 'buggy_' + i + '.js', buggy, function (err) {
+ fs.writeFile(GeneratedSourceBuggyDir + 'buggy_' + i + '.js', buggy, function (err) {
    if (err) throw err;
    console.log('Generated buggy mutation ' + 'buggy_' + i + '.js');
  });
@@ -69,7 +74,7 @@ for(var i = 0; i < mutationNum; i++){
       '\t' + 'dataType: ' + "'" + 'json' + "'" + '\n' +
   '});';  
 
- fs.writeFile(GeneratedSourceDir + 'correct_' + i + '.js', correct, function (err) {
+ fs.writeFile(GeneratedSourceCorrectDir + 'correct_' + i + '.js', correct, function (err) {
    if (err) throw err;
    console.log('Generated correct mutation ' + 'correct_' + i + '.js',);
  });

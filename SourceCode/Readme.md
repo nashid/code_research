@@ -9,3 +9,6 @@ n=[number of mutations] npm mutate
 
 # Workflow  
 Generate mutations for bug pattern => Tokenize and AST => Generate from AST  
+
+# Create Training Data from Tokens
+npm training_data

@@ -7,7 +7,8 @@
     "tokenize": "node tokenize.js",
     "generate": "node generate.js",
     "mutate": "node mutate.js",
-    "cleandir": "node cleandir.js"
+    "cleandir": "node cleandir.js",
+    "training_data": "node training_data.js"
   },
   "dependencies": {
     "acorn": "^5.3.0",
