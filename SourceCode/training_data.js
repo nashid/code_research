@@ -15,6 +15,8 @@ if(fs.existsSync(DataDir)){
 }
 
 fs.mkdirSync(DataDir);
+fs.openSync(DataDir + 'examples.correct', 'w');
+fs.openSync(DataDir + 'examples.buggy', 'w');
 
 var correct_examples = [];
 var correct_files = fs.readdirSync(TokensCorrectDir);
@@ -33,10 +35,38 @@ buggy_files.forEach(file => {
 //TODO write to single buggy file, write to single correct file examples are kept in order
 correct_files.forEach(function(file){
   var tokenCorrect = JSON.parse(fs.readFileSync(TokensCorrectDir + file, "utf-8"));
-  fs.appendFileSync(DataDir + 'examples.correct', JSON.stringify(tokenCorrect, null, 2) + "\n");
+  var tokens = '';
+  for(var i = 0; i < tokenCorrect.length; i++)
+  {
+    if(!tokenCorrect[i].value){
+      tokens += tokenCorrect[i].type.label;
+    }
+    else
+    {
+      tokens += tokenCorrect[i].value;
+    }
+  }  
+
+  console.log("-----------\n"); 
+  console.log(tokens);  
+ 
+  fs.appendFileSync(DataDir + 'examples.correct', tokens + "\n");
 });
 
 buggy_files.forEach(function(file){
   var tokenBuggy = JSON.parse(fs.readFileSync(TokensBuggyDir + file, "utf-8"));
-  fs.appendFileSync(DataDir + 'examples.buggy', JSON.stringify(tokenBuggy, null, 2) + "\n");
+  
+  var tokens = '';
+  for(var i = 0; i < tokenBuggy.length; i++)
+  {
+    if(!tokenBuggy[i].value){
+      tokens += tokenBuggy[i].type.label;
+    }
+    else
+    {
+      tokens += tokenBuggy[i].value;
+    }
+  }  
+
+  fs.appendFileSync(DataDir + 'examples.buggy', tokens + "\n");
 });
