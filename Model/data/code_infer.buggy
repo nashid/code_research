@@ -1,4 +1,1 @@
-$.ajax({url:/r9w63db0lm/wowphz7ki/,type:PUT,data:{u9lld:cedbgruf},contentType:application/json,dataType:json});eof
-$.ajax({url:/.iewv21f5sz/fsrrvl8r/,type:PUT,data:{wd:gcarzw9rvgw,v1:7vytsjg50v,8xf9:yjzxq0tg,st6q2mq:r1m7w3aic8,doa:xwqrgfqek},contentType:application/json,dataType:json});eof
-$.ajax({url:/15io1i7nm/jpipyc9so/fmil/.fnckfdf5jl5/ccnnasvr/,type:PUT,data:{r9k7x:voa,s6ntev9yza:rq0yqgg4e,q4dq29tsf:ryfkiijbfk,3po:.pwibv4itczl,1dqlkama:x0tknfnistn},contentType:application/json,dataType:json});eof
-$.ajax({url:/d0v/npzwvb2gw/owcr/,type:PUT,data:{.e7x6a14przm:l0q,e1k:l69,dzeb:.4wu6wj0zeu},contentType:application/json,dataType:json});eof
+$ .ajax ( { url : < url > , type : PUT , data : { < key > : < value > } , contentType : application/json , dataType : json } ) ;
