@@ -1,0 +1,14 @@
+# log_file=./data/nmt_model/log_1518144758
+# Start step 0, lr 1, Thu Feb  8 20:52:40 2018
+  step 100 lr 1 step-time 0.08s wps 4.61K ppl 3.26 gN 1.54 bleu 0.00, Thu Feb  8 20:52:50 2018
+  step 200 lr 1 step-time 0.07s wps 5.07K ppl 1.00 gN 0.00 bleu 0.00, Thu Feb  8 20:53:00 2018
+  step 300 lr 1 step-time 0.08s wps 4.96K ppl 1.00 gN 0.00 bleu 0.00, Thu Feb  8 20:53:10 2018
+  step 400 lr 1 step-time 0.07s wps 5.09K ppl 1.00 gN 0.00 bleu 0.00, Thu Feb  8 20:53:20 2018
+  step 500 lr 1 step-time 0.08s wps 4.90K ppl 1.00 gN 0.00 bleu 0.00, Thu Feb  8 20:53:31 2018
+  step 600 lr 1 step-time 0.07s wps 5.07K ppl 1.00 gN 0.00 bleu 0.00, Thu Feb  8 20:53:41 2018
+  step 700 lr 1 step-time 0.08s wps 4.95K ppl 1.00 gN 0.00 bleu 0.00, Thu Feb  8 20:53:52 2018
+  step 800 lr 1 step-time 0.07s wps 5.03K ppl 1.00 gN 0.00 bleu 0.00, Thu Feb  8 20:54:02 2018
+  step 900 lr 1 step-time 0.08s wps 4.91K ppl 1.00 gN 0.00 bleu 0.00, Thu Feb  8 20:54:13 2018
+  step 1000 lr 1 step-time 0.07s wps 5.08K ppl 1.00 gN 0.00 bleu 0.00, Thu Feb  8 20:54:24 2018
+# Final, step 1000 lr 1 step-time 0.07s wps 5.08K ppl 1.00 gN 0.00 dev ppl 1.00, dev bleu 0.0, test ppl 1.00, test bleu 0.0, Thu Feb  8 20:54:27 2018
+# Best bleu, step 0 lr 1 step-time 0.07s wps 5.08K ppl 1.00 gN 0.00 dev ppl 23.00, dev bleu 0.0, test ppl 23.00, test bleu 0.0, Thu Feb  8 20:54:28 2018
