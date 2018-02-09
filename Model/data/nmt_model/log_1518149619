@@ -1,4 +1,0 @@
-# log_file=./data/nmt_model/log_1518149619
-# Start step 1000, lr 1, Thu Feb  8 22:13:42 2018
-# Final, step 1000 lr 1 step-time 0.00s wps 0.00K ppl 0.00 gN 0.00 dev ppl 1951.78, dev bleu 0.0, test ppl 1951.78, test bleu 0.0, Thu Feb  8 22:13:43 2018
-# Best bleu, step 0 lr 1 step-time 0.00s wps 0.00K ppl 0.00 gN 0.00 dev ppl 22.99, dev bleu 0.0, test ppl 22.99, test bleu 0.0, Thu Feb  8 22:13:44 2018
