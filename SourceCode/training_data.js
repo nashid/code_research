@@ -32,12 +32,20 @@ buggy_files.forEach(file => {
     buggy_examples.push(name);
 });
 
-//TODO write to single buggy file, write to single correct file examples are kept in order
 correct_files.forEach(function(file){
   var tokenCorrect = JSON.parse(fs.readFileSync(TokensCorrectDir + file, "utf-8"));
   var tokens = '';
   for(var i = 0; i < tokenCorrect.length; i++)
   {
+    if(i != 0)
+    {  
+      tokens += ' ';
+    }
+
+    if(tokenCorrect[i].type.label === 'eof'){
+      continue;
+    }
+
     if(!tokenCorrect[i].value){
       tokens += tokenCorrect[i].type.label;
     }
@@ -46,9 +54,6 @@ correct_files.forEach(function(file){
       tokens += tokenCorrect[i].value;
     }
   }  
-
-  console.log("-----------\n"); 
-  console.log(tokens);  
  
   fs.appendFileSync(DataDir + 'examples.correct', tokens + "\n");
 });
@@ -59,6 +64,15 @@ buggy_files.forEach(function(file){
   var tokens = '';
   for(var i = 0; i < tokenBuggy.length; i++)
   {
+    if(i != 0)
+    {  
+      tokens += ' ';
+    }
+
+    if(tokenBuggy[i].type.label === 'eof'){
+      continue;
+    }
+
     if(!tokenBuggy[i].value){
       tokens += tokenBuggy[i].type.label;
     }

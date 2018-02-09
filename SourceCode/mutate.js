@@ -10,7 +10,7 @@ function randomURL(){
   for(var i = 0; i < slashes; i++)
   {
     var partLength = Math.floor(Math.random() * 10) + 1;
-    url += Math.random().toString(36).substr(partLength) + '/';
+    url += Math.random().toString(36).substr(partLength).replace('.', '') + '/';
   }  
   
   return url + "'";
@@ -26,9 +26,9 @@ function randomData(){
   for(var i = 0; i < numProps; i++)
   {
     var keyLength = Math.floor(Math.random() * 10) + 1;
-    keys.push(Math.random().toString(36).substr(keyLength));
+    keys.push(Math.random().toString(36).substr(keyLength).replace('.', ''));
     var valLength = Math.floor(Math.random() * 10) + 1;
-    vals.push(Math.random().toString(36).substr(valLength));
+    vals.push(Math.random().toString(36).substr(valLength).replace('.', ''));
   }
 
   for(var i = 0; i < keys.length; i++)
