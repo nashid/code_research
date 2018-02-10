@@ -7,11 +7,11 @@ npm generate
 # Generate mutations based on correct code  
 n=[number of mutations] npm mutate 
 
-# Workflow  
-Generate mutations for bug pattern => Tokenize and AST => Generate from AST  
-
 # Create Training Data from Tokens
 npm training_data  
 
 # Generate Vocabulary from Training Data  
 python commonvocab.py [vocab-size]
+
+# Workflow  
+Generate mutations for bug pattern => Tokenize and AST => Generate Vocab => Get Common Vocab => Training Data  

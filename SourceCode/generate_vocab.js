@@ -1,31 +1,21 @@
 const fs = require("fs");
 const rimraf = require('rimraf');
 
-const DataDir = "./TrainingData/";
+const VocabText = './vocab.txt';
 const TokensCorrectDir = "./TokensCorrect/";
 const TokensBuggyDir = "./TokensBuggy/";
-const VocabText = "./Vocab/vocab.txt";
+const VocabDir = "./Vocab/";
 
 if(!fs.existsSync(TokensCorrectDir) || !fs.existsSync(TokensBuggyDir)){
         console.log("Please make sure you have Tokens.")
         process.exit(1);
 }
 
-if(!fs.existsSync(VocabText)){
-        console.log("Please make sure you have generated vocabulary.")
-        process.exit(1);
+if(fs.existsSync(VocabDir)){
+  rimraf.sync(VocabDir);
 }
 
-if(fs.existsSync(DataDir)){
-  rimraf.sync(DataDir);
-}
-
-fs.mkdirSync(DataDir);
-fs.openSync(DataDir + 'examples.correct', 'w');
-fs.openSync(DataDir + 'examples.buggy', 'w');
-
-vocab = eval(fs.readFileSync(VocabText, 'utf8'));
-console.log(vocab);
+fs.mkdirSync(VocabDir);
 
 var correct_examples = [];
 var correct_files = fs.readdirSync(TokensCorrectDir);
@@ -47,9 +37,9 @@ correct_files.forEach(function(file){
   for(var i = 0; i < tokenCorrect.length; i++)
   {
     if(i != 0)
-    {  
+    {
       tokens += ' ';
-    }
+    }    
 
     if(tokenCorrect[i].type.label === 'eof'){
       continue;
@@ -60,29 +50,22 @@ correct_files.forEach(function(file){
     }
     else
     {
-      if(vocab.includes(tokenCorrect[i].value.toLowerCase()))
-      {
         tokens += tokenCorrect[i].value;
-      }
-      else {
-        tokens += tokenCorrect[i].type.label;
-      }
     }
-  }  
- 
-  fs.appendFileSync(DataDir + 'examples.correct', tokens + "\n");
+  }
+
+  fs.appendFileSync(VocabDir + 'Vocab.correct', tokens + "\n");
 });
 
 buggy_files.forEach(function(file){
   var tokenBuggy = JSON.parse(fs.readFileSync(TokensBuggyDir + file, "utf-8"));
-  
   var tokens = '';
   for(var i = 0; i < tokenBuggy.length; i++)
   {
     if(i != 0)
-    {  
+    {
       tokens += ' ';
-    }
+    }   
 
     if(tokenBuggy[i].type.label === 'eof'){
       continue;
@@ -93,15 +76,11 @@ buggy_files.forEach(function(file){
     }
     else
     {
-      if(vocab.includes(tokenBuggy[i].value.toLowerCase()))
-      {
         tokens += tokenBuggy[i].value;
-      }
-      else {
-        tokens += tokenBuggy[i].type.label;
-      }
     }
-  }  
+  }
 
-  fs.appendFileSync(DataDir + 'examples.buggy', tokens + "\n");
+  fs.appendFileSync(VocabDir + 'Vocab.buggy', tokens + "\n");
 });
+
+

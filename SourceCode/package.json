@@ -6,6 +6,7 @@
   "scripts": {
     "tokenize": "node tokenize.js",
     "generate": "node generate.js",
+    "generate_vocab": "node generate_vocab.js",
     "mutate": "node mutate.js",
     "cleandir": "node cleandir.js",
     "training_data": "node training_data.js"
@@ -13,8 +14,7 @@
   "dependencies": {
     "acorn": "^5.3.0",
     "escodegen": "^1.9.0",
-    "rimraf": "^2.6.2",
-    "python-shell": "^0.4.0"
+    "rimraf": "^2.6.2"
   },
   "engines": {
     "node": "8.0.0"
