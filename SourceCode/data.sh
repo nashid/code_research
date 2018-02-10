@@ -1,4 +1,9 @@
 #!/bin/bash
+
+rm -rf '../Model/data/TrainingData/'
+rm -rf '../Model/data/TestData/'
+rm -rf '../Model/data/DevData/'
+
 npm run cleandir
 n=1000 npm run mutate
 npm run tokenize
