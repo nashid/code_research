@@ -41,6 +41,9 @@ buggy_files.forEach(file => {
     buggy_examples.push(name);
 });
 
+duplicates_allowed = true;
+
+correct_pattern_list = new Set();
 correct_files.forEach(function(file){
   var tokenCorrect = JSON.parse(fs.readFileSync(TokensCorrectDir + file, "utf-8"));
   var tokens = '';
@@ -60,7 +63,7 @@ correct_files.forEach(function(file){
     }
     else
     {
-      if(vocab.includes(tokenCorrect[i].value.toLowerCase()))
+      if(vocab.includes(tokenCorrect[i].value))
       {
         tokens += tokenCorrect[i].value;
       }
@@ -68,11 +71,16 @@ correct_files.forEach(function(file){
         tokens += tokenCorrect[i].type.label;
       }
     }
-  }  
- 
-  fs.appendFileSync(DataDir + 'examples.correct', tokens + "\n");
+   }
+   
+   if(!correct_pattern_list.has(tokens) & !duplicates_allowed){
+     correct_pattern_list.add(tokens);
+     return;
+   }
+   fs.appendFileSync(DataDir + 'examples.correct', tokens + "\n");  
 });
 
+buggy_pattern_list = new Set();
 buggy_files.forEach(function(file){
   var tokenBuggy = JSON.parse(fs.readFileSync(TokensBuggyDir + file, "utf-8"));
   
@@ -93,7 +101,7 @@ buggy_files.forEach(function(file){
     }
     else
     {
-      if(vocab.includes(tokenBuggy[i].value.toLowerCase()))
+      if(vocab.includes(tokenBuggy[i].value))
       {
         tokens += tokenBuggy[i].value;
       }
@@ -101,7 +109,11 @@ buggy_files.forEach(function(file){
         tokens += tokenBuggy[i].type.label;
       }
     }
-  }  
-
-  fs.appendFileSync(DataDir + 'examples.buggy', tokens + "\n");
+   }  
+ 
+   if(!buggy_pattern_list.has(tokens) && !duplicates_allowed){
+      buggy_pattern_list.add(tokens);
+      return;  
+   }
+   fs.appendFileSync(DataDir + 'examples.buggy', tokens + "\n");
 });
