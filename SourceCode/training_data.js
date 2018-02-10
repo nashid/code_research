@@ -1,9 +1,11 @@
 const fs = require("fs");
 const rimraf = require('rimraf');
+const pythonshell = require('python-shell');
 
 const DataDir = "./TrainingData/";
 const TokensCorrectDir = "./TokensCorrect/";
 const TokensBuggyDir = "./TokensBuggy/";
+const VocabText = './vocab.txt';
 
 if(!fs.existsSync(TokensCorrectDir) || !fs.existsSync(TokensBuggyDir)){
         console.log("Please make sure you have Tokens.")
@@ -17,6 +19,18 @@ if(fs.existsSync(DataDir)){
 fs.mkdirSync(DataDir);
 fs.openSync(DataDir + 'examples.correct', 'w');
 fs.openSync(DataDir + 'examples.buggy', 'w');
+
+var options = {
+  mode: 'text',
+  args: ['20']
+};
+
+pythonshell.run('commonvocab.py', options, function (err, results) {
+  if (err) throw err;
+})
+
+vocab = eval(fs.readFileSync(VocabText, 'utf8'));
+console.log(vocab);
 
 var correct_examples = [];
 var correct_files = fs.readdirSync(TokensCorrectDir);
@@ -51,7 +65,13 @@ correct_files.forEach(function(file){
     }
     else
     {
-      tokens += tokenCorrect[i].value;
+      if(vocab.includes(tokenCorrect[i].value.toLowerCase()))
+      {
+        tokens += tokenCorrect[i].value;
+      }
+      else {
+        tokens += tokenCorrect[i].type.label;
+      }
     }
   }  
  
@@ -78,7 +98,13 @@ buggy_files.forEach(function(file){
     }
     else
     {
-      tokens += tokenBuggy[i].value;
+      if(vocab.includes(tokenBuggy[i].value.toLowerCase()))
+      {
+        tokens += tokenBuggy[i].value;
+      }
+      else {
+        tokens += tokenBuggy[i].type.label;
+      }
     }
   }  
 

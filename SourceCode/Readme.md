@@ -11,4 +11,7 @@ n=[number of mutations] npm mutate
 Generate mutations for bug pattern => Tokenize and AST => Generate from AST  
 
 # Create Training Data from Tokens
-npm training_data
+npm training_data  
+
+# Generate Vocabulary from Training Data  
+python commonvocab.py [vocab-size]
