@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm -rf '../Model/data/TrainingData/'
+rm -rf '../Model/data/TrainData/'
 rm -rf '../Model/data/TestData/'
 rm -rf '../Model/data/DevData/'
 
@@ -9,8 +9,8 @@ n=1000 npm run mutate
 npm run tokenize
 npm run generate_vocab
 python commonvocab.py 20
-fn='./TrainingData/' npm run data
-cp -r './TrainingData/' '../Model/data/'
+fn='./TrainData/' npm run data
+cp -r './TrainData/' '../Model/data/'
 
 npm run cleandir
 n=100 npm run mutate
@@ -24,5 +24,7 @@ npm run tokenize
 fn='./DevData/' npm run data
 cp -r './DevData/' '../Model/data/'
 
+npm run formatvocab
 cp -r './Vocab' '../Model/data/'
+npm run cleandir
 rm -rf './Vocab/'

@@ -2,6 +2,7 @@ const fs = require("fs");
 const rimraf = require('rimraf');
 
 const DataDir = process.env.fn;
+const DataName = DataDir.replace('Data/', '').toLowerCase();
 const TokensCorrectDir = "./TokensCorrect/";
 const TokensBuggyDir = "./TokensBuggy/";
 const VocabBuggy = './Vocab/vocab.buggy';
@@ -22,8 +23,8 @@ if(fs.existsSync(DataDir)){
 }
 
 fs.mkdirSync(DataDir);
-fs.openSync(DataDir + 'examples.correct', 'w');
-fs.openSync(DataDir + 'examples.buggy', 'w');
+fs.openSync(DataDir + DataName + '.correct', 'w');
+fs.openSync(DataDir + DataName + '.buggy', 'w');
 
 vocab_buggy = eval(fs.readFileSync(VocabBuggy, 'utf8'));
 vocab_correct = eval(fs.readFileSync(VocabCorrect, 'utf8')); 
@@ -78,7 +79,7 @@ correct_files.forEach(function(file){
      correct_pattern_list.add(tokens);
      return;
    }
-   fs.appendFileSync(DataDir + 'examples.correct', tokens + "\n");  
+   fs.appendFileSync(DataDir + DataName + '.correct', tokens + "\n");  
 });
 
 buggy_pattern_list = new Set();
@@ -116,5 +117,5 @@ buggy_files.forEach(function(file){
       buggy_pattern_list.add(tokens);
       return;  
    }
-   fs.appendFileSync(DataDir + 'examples.buggy', tokens + "\n");
+   fs.appendFileSync(DataDir + DataName + '.buggy', tokens + "\n");
 });

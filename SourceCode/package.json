@@ -9,7 +9,8 @@
     "generate_vocab": "node generate_vocab.js",
     "mutate": "node mutate.js",
     "cleandir": "node cleandir.js",
-    "data": "node data.js"
+    "data": "node data.js",
+    "formatvocab": "node formatvocab.js"
   },
   "dependencies": {
     "acorn": "^5.3.0",

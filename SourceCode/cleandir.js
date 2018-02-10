@@ -12,7 +12,7 @@ const ASTCorrectDir = "./ASTsCorrect/";
 const TokenBuggyDir = "./TokensBuggy/";
 const TokenCorrectDir = "./TokensCorrect/";
 
-const TrainingData = "./TrainingData/"
+const TrainingData = "./TrainData/"
 const TestData = "./TestData/"
 const DevData = "./DevData/"
 
