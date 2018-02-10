@@ -14,6 +14,8 @@ const TokenBuggyDir = "./TokensBuggy/";
 const TokenCorrectDir = "./TokensCorrect/";
 
 const TrainingData = "./TrainingData/"
+const TestData = "./TestData/"
+const DevData = "./DevData/"
 
 if(fs.existsSync(ASTBuggyDir)){
   rimraf.sync(ASTBuggyDir);
@@ -60,5 +62,13 @@ if(fs.existsSync(TrainingData)){
   console.log("Removed Training Examples Dir \n");
 }
 
+if(fs.existsSync(DevData)){
+  rimraf.sync(DevData);
+  console.log("Removed Dev Examples Dir \n");
+}
 
+if(fs.existsSync(TestData)){
+  rimraf.sync(TestData);
+  console.log("Removed Test Examples Dir \n");
+}
 

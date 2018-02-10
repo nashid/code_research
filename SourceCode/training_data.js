@@ -1,7 +1,7 @@
 const fs = require("fs");
 const rimraf = require('rimraf');
 
-const DataDir = "./TrainingData/";
+const DataDir = process.env.fn;
 const TokensCorrectDir = "./TokensCorrect/";
 const TokensBuggyDir = "./TokensBuggy/";
 const VocabText = "./Vocab/vocab.txt";
