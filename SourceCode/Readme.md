@@ -16,3 +16,6 @@ python commonvocab.py [vocab-size]
 
 # Workflow  
 Generate mutations for bug pattern => Tokenize and AST => Generate Vocab => Get Common Vocab => Training Data  
+
+# Generate data and move to model dir    
+./data.sh  
