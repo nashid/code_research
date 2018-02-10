@@ -1,0 +1,555 @@
+[
+  {
+    "type": {
+      "label": "name",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "value": "$",
+    "start": 0,
+    "end": 1
+  },
+  {
+    "type": {
+      "label": ".",
+      "beforeExpr": false,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 1,
+    "end": 2
+  },
+  {
+    "type": {
+      "label": "name",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "value": "ajax",
+    "start": 2,
+    "end": 6
+  },
+  {
+    "type": {
+      "label": "(",
+      "beforeExpr": true,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "start": 6,
+    "end": 7
+  },
+  {
+    "type": {
+      "label": "{",
+      "beforeExpr": true,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "start": 7,
+    "end": 8
+  },
+  {
+    "type": {
+      "label": "name",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "value": "url",
+    "start": 10,
+    "end": 13
+  },
+  {
+    "type": {
+      "label": ":",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 13,
+    "end": 14
+  },
+  {
+    "type": {
+      "label": "string",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "value": "/uhypjn7qgg/snl31noqoh/6o3m40iso/50f/",
+    "start": 15,
+    "end": 54
+  },
+  {
+    "type": {
+      "label": ",",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 54,
+    "end": 55
+  },
+  {
+    "type": {
+      "label": "name",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "value": "type",
+    "start": 57,
+    "end": 61
+  },
+  {
+    "type": {
+      "label": ":",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 61,
+    "end": 62
+  },
+  {
+    "type": {
+      "label": "string",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "value": "PUT",
+    "start": 63,
+    "end": 68
+  },
+  {
+    "type": {
+      "label": ",",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 68,
+    "end": 69
+  },
+  {
+    "type": {
+      "label": "name",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "value": "data",
+    "start": 71,
+    "end": 75
+  },
+  {
+    "type": {
+      "label": ":",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 75,
+    "end": 76
+  },
+  {
+    "type": {
+      "label": "name",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "value": "JSON",
+    "start": 77,
+    "end": 81
+  },
+  {
+    "type": {
+      "label": ".",
+      "beforeExpr": false,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 81,
+    "end": 82
+  },
+  {
+    "type": {
+      "label": "name",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "value": "stringify",
+    "start": 82,
+    "end": 91
+  },
+  {
+    "type": {
+      "label": "(",
+      "beforeExpr": true,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "start": 91,
+    "end": 92
+  },
+  {
+    "type": {
+      "label": "{",
+      "beforeExpr": true,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "start": 92,
+    "end": 93
+  },
+  {
+    "type": {
+      "label": "string",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "value": "5ey",
+    "start": 93,
+    "end": 98
+  },
+  {
+    "type": {
+      "label": ":",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 98,
+    "end": 99
+  },
+  {
+    "type": {
+      "label": "string",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "value": "iu8ufkw3n5k",
+    "start": 99,
+    "end": 112
+  },
+  {
+    "type": {
+      "label": "}",
+      "beforeExpr": false,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "start": 112,
+    "end": 113
+  },
+  {
+    "type": {
+      "label": ")",
+      "beforeExpr": false,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "start": 113,
+    "end": 114
+  },
+  {
+    "type": {
+      "label": ",",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 114,
+    "end": 115
+  },
+  {
+    "type": {
+      "label": "name",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "value": "contentType",
+    "start": 117,
+    "end": 128
+  },
+  {
+    "type": {
+      "label": ":",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 128,
+    "end": 129
+  },
+  {
+    "type": {
+      "label": "string",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "value": "application/json",
+    "start": 130,
+    "end": 148
+  },
+  {
+    "type": {
+      "label": ",",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 148,
+    "end": 149
+  },
+  {
+    "type": {
+      "label": "name",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "value": "dataType",
+    "start": 151,
+    "end": 159
+  },
+  {
+    "type": {
+      "label": ":",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 159,
+    "end": 160
+  },
+  {
+    "type": {
+      "label": "string",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "value": "json",
+    "start": 161,
+    "end": 167
+  },
+  {
+    "type": {
+      "label": "}",
+      "beforeExpr": false,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "start": 168,
+    "end": 169
+  },
+  {
+    "type": {
+      "label": ")",
+      "beforeExpr": false,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "start": 169,
+    "end": 170
+  },
+  {
+    "type": {
+      "label": ";",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 170,
+    "end": 171
+  },
+  {
+    "type": {
+      "label": "eof",
+      "beforeExpr": false,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 171,
+    "end": 171
+  }
+]

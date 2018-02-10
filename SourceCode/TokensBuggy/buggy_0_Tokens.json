@@ -1,0 +1,668 @@
+[
+  {
+    "type": {
+      "label": "name",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "value": "$",
+    "start": 0,
+    "end": 1
+  },
+  {
+    "type": {
+      "label": ".",
+      "beforeExpr": false,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 1,
+    "end": 2
+  },
+  {
+    "type": {
+      "label": "name",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "value": "ajax",
+    "start": 2,
+    "end": 6
+  },
+  {
+    "type": {
+      "label": "(",
+      "beforeExpr": true,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "start": 6,
+    "end": 7
+  },
+  {
+    "type": {
+      "label": "{",
+      "beforeExpr": true,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "start": 7,
+    "end": 8
+  },
+  {
+    "type": {
+      "label": "name",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "value": "url",
+    "start": 10,
+    "end": 13
+  },
+  {
+    "type": {
+      "label": ":",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 13,
+    "end": 14
+  },
+  {
+    "type": {
+      "label": "string",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "value": "/6ztoatq/dqqd/70zg/dkx6vn/7ofeo8myj7/",
+    "start": 15,
+    "end": 54
+  },
+  {
+    "type": {
+      "label": ",",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 54,
+    "end": 55
+  },
+  {
+    "type": {
+      "label": "name",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "value": "type",
+    "start": 57,
+    "end": 61
+  },
+  {
+    "type": {
+      "label": ":",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 61,
+    "end": 62
+  },
+  {
+    "type": {
+      "label": "string",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "value": "PUT",
+    "start": 63,
+    "end": 68
+  },
+  {
+    "type": {
+      "label": ",",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 68,
+    "end": 69
+  },
+  {
+    "type": {
+      "label": "name",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "value": "data",
+    "start": 71,
+    "end": 75
+  },
+  {
+    "type": {
+      "label": ":",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 75,
+    "end": 76
+  },
+  {
+    "type": {
+      "label": "{",
+      "beforeExpr": true,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "start": 77,
+    "end": 78
+  },
+  {
+    "type": {
+      "label": "string",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "value": "j4cpxomc",
+    "start": 78,
+    "end": 88
+  },
+  {
+    "type": {
+      "label": ":",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 88,
+    "end": 89
+  },
+  {
+    "type": {
+      "label": "string",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "value": "wq7z3wpzog",
+    "start": 89,
+    "end": 101
+  },
+  {
+    "type": {
+      "label": ",",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 101,
+    "end": 102
+  },
+  {
+    "type": {
+      "label": "string",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "value": "gsg",
+    "start": 102,
+    "end": 107
+  },
+  {
+    "type": {
+      "label": ":",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 107,
+    "end": 108
+  },
+  {
+    "type": {
+      "label": "string",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "value": "l9o3q7",
+    "start": 108,
+    "end": 116
+  },
+  {
+    "type": {
+      "label": ",",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 116,
+    "end": 117
+  },
+  {
+    "type": {
+      "label": "string",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "value": "o0d6wb3cg",
+    "start": 117,
+    "end": 128
+  },
+  {
+    "type": {
+      "label": ":",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 128,
+    "end": 129
+  },
+  {
+    "type": {
+      "label": "string",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "value": "xy68mi5annf",
+    "start": 129,
+    "end": 142
+  },
+  {
+    "type": {
+      "label": ",",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 142,
+    "end": 143
+  },
+  {
+    "type": {
+      "label": "string",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "value": "9yfhoo2q9t6",
+    "start": 143,
+    "end": 156
+  },
+  {
+    "type": {
+      "label": ":",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 156,
+    "end": 157
+  },
+  {
+    "type": {
+      "label": "string",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "value": "jtximufhi",
+    "start": 157,
+    "end": 168
+  },
+  {
+    "type": {
+      "label": "}",
+      "beforeExpr": false,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "start": 168,
+    "end": 169
+  },
+  {
+    "type": {
+      "label": ",",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 169,
+    "end": 170
+  },
+  {
+    "type": {
+      "label": "name",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "value": "contentType",
+    "start": 172,
+    "end": 183
+  },
+  {
+    "type": {
+      "label": ":",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 183,
+    "end": 184
+  },
+  {
+    "type": {
+      "label": "string",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "value": "application/json",
+    "start": 185,
+    "end": 203
+  },
+  {
+    "type": {
+      "label": ",",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 203,
+    "end": 204
+  },
+  {
+    "type": {
+      "label": "name",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "value": "dataType",
+    "start": 206,
+    "end": 214
+  },
+  {
+    "type": {
+      "label": ":",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 214,
+    "end": 215
+  },
+  {
+    "type": {
+      "label": "string",
+      "beforeExpr": false,
+      "startsExpr": true,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "value": "json",
+    "start": 216,
+    "end": 222
+  },
+  {
+    "type": {
+      "label": "}",
+      "beforeExpr": false,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "start": 223,
+    "end": 224
+  },
+  {
+    "type": {
+      "label": ")",
+      "beforeExpr": false,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null
+    },
+    "start": 224,
+    "end": 225
+  },
+  {
+    "type": {
+      "label": ";",
+      "beforeExpr": true,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 225,
+    "end": 226
+  },
+  {
+    "type": {
+      "label": "eof",
+      "beforeExpr": false,
+      "startsExpr": false,
+      "isLoop": false,
+      "isAssign": false,
+      "prefix": false,
+      "postfix": false,
+      "binop": null,
+      "updateContext": null
+    },
+    "start": 226,
+    "end": 226
+  }
+]

@@ -54,7 +54,7 @@ correct_files.forEach(function(file){
     }
   }
 
-  fs.appendFileSync(VocabDir + 'Vocab.correct', tokens + "\n");
+  fs.appendFileSync(VocabDir + 'VocabCorpus.correct', tokens + "\n");
 });
 
 buggy_files.forEach(function(file){
@@ -80,7 +80,7 @@ buggy_files.forEach(function(file){
     }
   }
 
-  fs.appendFileSync(VocabDir + 'Vocab.buggy', tokens + "\n");
+  fs.appendFileSync(VocabDir + 'VocabCorpus.buggy', tokens + "\n");
 });
 
 

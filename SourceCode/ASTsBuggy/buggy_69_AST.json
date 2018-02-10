@@ -1,0 +1,270 @@
+{
+  "type": "Program",
+  "start": 0,
+  "end": 228,
+  "body": [
+    {
+      "type": "ExpressionStatement",
+      "start": 0,
+      "end": 228,
+      "expression": {
+        "type": "CallExpression",
+        "start": 0,
+        "end": 227,
+        "callee": {
+          "type": "MemberExpression",
+          "start": 0,
+          "end": 6,
+          "object": {
+            "type": "Identifier",
+            "start": 0,
+            "end": 1,
+            "name": "$"
+          },
+          "property": {
+            "type": "Identifier",
+            "start": 2,
+            "end": 6,
+            "name": "ajax"
+          },
+          "computed": false
+        },
+        "arguments": [
+          {
+            "type": "ObjectExpression",
+            "start": 7,
+            "end": 226,
+            "properties": [
+              {
+                "type": "Property",
+                "start": 10,
+                "end": 35,
+                "method": false,
+                "shorthand": false,
+                "computed": false,
+                "key": {
+                  "type": "Identifier",
+                  "start": 10,
+                  "end": 13,
+                  "name": "url"
+                },
+                "value": {
+                  "type": "Literal",
+                  "start": 15,
+                  "end": 35,
+                  "value": "/mu832n/ne9/44qo8/",
+                  "raw": "'/mu832n/ne9/44qo8/'"
+                },
+                "kind": "init"
+              },
+              {
+                "type": "Property",
+                "start": 38,
+                "end": 49,
+                "method": false,
+                "shorthand": false,
+                "computed": false,
+                "key": {
+                  "type": "Identifier",
+                  "start": 38,
+                  "end": 42,
+                  "name": "type"
+                },
+                "value": {
+                  "type": "Literal",
+                  "start": 44,
+                  "end": 49,
+                  "value": "PUT",
+                  "raw": "'PUT'"
+                },
+                "kind": "init"
+              },
+              {
+                "type": "Property",
+                "start": 52,
+                "end": 171,
+                "method": false,
+                "shorthand": false,
+                "computed": false,
+                "key": {
+                  "type": "Identifier",
+                  "start": 52,
+                  "end": 56,
+                  "name": "data"
+                },
+                "value": {
+                  "type": "ObjectExpression",
+                  "start": 58,
+                  "end": 171,
+                  "properties": [
+                    {
+                      "type": "Property",
+                      "start": 59,
+                      "end": 80,
+                      "method": false,
+                      "shorthand": false,
+                      "computed": false,
+                      "key": {
+                        "type": "Literal",
+                        "start": 59,
+                        "end": 66,
+                        "value": "xgnk8",
+                        "raw": "\"xgnk8\""
+                      },
+                      "value": {
+                        "type": "Literal",
+                        "start": 67,
+                        "end": 80,
+                        "value": "c623zcpfbjh",
+                        "raw": "\"c623zcpfbjh\""
+                      },
+                      "kind": "init"
+                    },
+                    {
+                      "type": "Property",
+                      "start": 81,
+                      "end": 103,
+                      "method": false,
+                      "shorthand": false,
+                      "computed": false,
+                      "key": {
+                        "type": "Literal",
+                        "start": 81,
+                        "end": 90,
+                        "value": "kzy1q5l",
+                        "raw": "\"kzy1q5l\""
+                      },
+                      "value": {
+                        "type": "Literal",
+                        "start": 91,
+                        "end": 103,
+                        "value": "pbft6dq1ju",
+                        "raw": "\"pbft6dq1ju\""
+                      },
+                      "kind": "init"
+                    },
+                    {
+                      "type": "Property",
+                      "start": 104,
+                      "end": 121,
+                      "method": false,
+                      "shorthand": false,
+                      "computed": false,
+                      "key": {
+                        "type": "Literal",
+                        "start": 104,
+                        "end": 115,
+                        "value": "t5npdnptt",
+                        "raw": "\"t5npdnptt\""
+                      },
+                      "value": {
+                        "type": "Literal",
+                        "start": 116,
+                        "end": 121,
+                        "value": "bbi",
+                        "raw": "\"bbi\""
+                      },
+                      "kind": "init"
+                    },
+                    {
+                      "type": "Property",
+                      "start": 122,
+                      "end": 149,
+                      "method": false,
+                      "shorthand": false,
+                      "computed": false,
+                      "key": {
+                        "type": "Literal",
+                        "start": 122,
+                        "end": 135,
+                        "value": "v43hsnd5kqc",
+                        "raw": "\"v43hsnd5kqc\""
+                      },
+                      "value": {
+                        "type": "Literal",
+                        "start": 136,
+                        "end": 149,
+                        "value": "avezc64bq5k",
+                        "raw": "\"avezc64bq5k\""
+                      },
+                      "kind": "init"
+                    },
+                    {
+                      "type": "Property",
+                      "start": 150,
+                      "end": 170,
+                      "method": false,
+                      "shorthand": false,
+                      "computed": false,
+                      "key": {
+                        "type": "Literal",
+                        "start": 150,
+                        "end": 159,
+                        "value": "oqsmgoq",
+                        "raw": "\"oqsmgoq\""
+                      },
+                      "value": {
+                        "type": "Literal",
+                        "start": 160,
+                        "end": 170,
+                        "value": "4r24i1s8",
+                        "raw": "\"4r24i1s8\""
+                      },
+                      "kind": "init"
+                    }
+                  ]
+                },
+                "kind": "init"
+              },
+              {
+                "type": "Property",
+                "start": 174,
+                "end": 205,
+                "method": false,
+                "shorthand": false,
+                "computed": false,
+                "key": {
+                  "type": "Identifier",
+                  "start": 174,
+                  "end": 185,
+                  "name": "contentType"
+                },
+                "value": {
+                  "type": "Literal",
+                  "start": 187,
+                  "end": 205,
+                  "value": "application/json",
+                  "raw": "'application/json'"
+                },
+                "kind": "init"
+              },
+              {
+                "type": "Property",
+                "start": 208,
+                "end": 224,
+                "method": false,
+                "shorthand": false,
+                "computed": false,
+                "key": {
+                  "type": "Identifier",
+                  "start": 208,
+                  "end": 216,
+                  "name": "dataType"
+                },
+                "value": {
+                  "type": "Literal",
+                  "start": 218,
+                  "end": 224,
+                  "value": "json",
+                  "raw": "'json'"
+                },
+                "kind": "init"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "sourceType": "script"
+}

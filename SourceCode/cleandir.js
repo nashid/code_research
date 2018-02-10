@@ -5,7 +5,6 @@ const GeneratedSourceBuggyDir = "./GeneratedSourceBuggy/";
 const GeneratedSourceCorrectDir = "./GeneratedSourceCorrect/";
 
 const TranslatedDir = "./TranslatedCode/";
-const VocabDir = './Vocab/';
 
 const ASTBuggyDir = "./ASTsBuggy/";
 const ASTCorrectDir = "./ASTsCorrect/";
@@ -50,11 +49,6 @@ if(fs.existsSync(GeneratedSourceCorrectDir)){
 if(fs.existsSync(TranslatedDir)){
   rimraf.sync(TranslatedDir);
   console.log("Removed Translated Code Dir \n");
-}
-
-if(fs.existsSync(VocabDir)){
-  rimraf.sync(VocabDir);
-  console.log("Removed Vocab Dir \n");
 }
 
 if(fs.existsSync(TrainingData)){
