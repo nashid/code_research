@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -rf './data/nmt_model'
+
 python -m nmt.nmt \
     --attention=scaled_luong \
     --src=buggy --tgt=correct \
