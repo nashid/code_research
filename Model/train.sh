@@ -11,7 +11,7 @@ python -m nmt.nmt \
     --out_dir=./data/nmt_model \
     --encoder_type=bi \
     --optimizer=adam \
-    --learning_rate=0.1
+    --learning_rate=0.05 \
     --num_train_steps=1200 \
     --steps_per_stats=100 \
     --num_layers=2 \
