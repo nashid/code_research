@@ -43,7 +43,7 @@ buggy_files.forEach(file => {
     buggy_examples.push(name);
 });
 
-duplicates_allowed = false;
+duplicates_allowed = true;
 
 correct_pattern_list = new Set();
 correct_files.forEach(function(file){
@@ -75,10 +75,11 @@ correct_files.forEach(function(file){
     }
    }
    
-   if(!correct_pattern_list.has(tokens) & !duplicates_allowed){
-     correct_pattern_list.add(tokens);
+   if(correct_pattern_list.has(tokens) & !duplicates_allowed){
      return;
    }
+
+   correct_pattern_list.add(tokens);
    fs.appendFileSync(DataDir + DataName + '.correct', tokens + "\n");  
 });
 
@@ -113,9 +114,10 @@ buggy_files.forEach(function(file){
     }
    }  
  
-   if(!buggy_pattern_list.has(tokens) && !duplicates_allowed){
-      buggy_pattern_list.add(tokens);
+   if(buggy_pattern_list.has(tokens) && !duplicates_allowed){
       return;  
    }
+
+   buggy_pattern_list.add(tokens);
    fs.appendFileSync(DataDir + DataName + '.buggy', tokens + "\n");
 });
