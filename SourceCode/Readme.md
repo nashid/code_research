@@ -14,6 +14,9 @@ Can set duplicated_allowed to filter training data for duplicate patterns
 # Generate Vocabulary from Training Data  
 python commonvocab.py [vocab-size]
 
+# Process mined source code data  
+npm run processdata  
+
 # Workflow  
 Generate mutations for bug pattern => Tokenize and AST => Generate Vocab => Get Common Vocab => Training Data  
 

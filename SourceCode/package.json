@@ -8,6 +8,7 @@
     "generate": "node generate.js",
     "generate_vocab": "node generate_vocab.js",
     "mutate": "node mutate.js",
+    "processdata": "node processdata.js",
     "cleandir": "node cleandir.js",
     "data": "node data.js",
     "formatvocab": "node formatvocab.js"
