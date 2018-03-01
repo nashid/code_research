@@ -5,22 +5,26 @@ rm -rf '../Model/data/TestData/'
 rm -rf '../Model/data/DevData/'
 
 npm run cleandir
-n=1000 npm run mutate
+npm run processdata
 npm run tokenize
 npm run generate_vocab
-python commonvocab.py 20
+python commonvocab.py 5000
 fn='./TrainData/' npm run data
 cp -r './TrainData/' '../Model/data/'
 
 npm run cleandir
-n=100 npm run mutate
+npm run processdata
 npm run tokenize
+npm run generate_vocab
+python commonvocab.py 5000
 fn='./TestData/' npm run data
 cp -r './TestData/' '../Model/data/'
 
 npm run cleandir
-n=100 npm run mutate
+npm run processdata
 npm run tokenize
+npm run generate_vocab
+python commonvocab.py 5000
 fn='./DevData/' npm run data
 cp -r './DevData/' '../Model/data/'
 

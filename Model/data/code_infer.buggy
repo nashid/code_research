@@ -3,3 +3,4 @@ $ . ajax ( { url : string , type : PUT , data : { string : string , string : str
 $ . ajax ( { url : string , type : PUT , data : { string : string } , contentType : application/json , dataType : json } ) ; 
 $ . ajax ( { url : string , type : PUT , data : { string : string , string : string } , contentType : application/json , dataType : json } ) ; 
 $ . ajax ( { url : string , type : PUT , data : { string : string , string : string , string : string } , contentType : application/json , dataType : json } ) ; 
+$ . ajax ( { url : string0 , type : PUT , data : { string1 : string2 , string3 : string4 , string5 : string6 } , contentType : application/json , dataType : json } ) ; 

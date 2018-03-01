@@ -26,8 +26,8 @@ fs.mkdirSync(DataDir);
 fs.openSync(DataDir + DataName + '.correct', 'w');
 fs.openSync(DataDir + DataName + '.buggy', 'w');
 
-vocab_buggy = eval(fs.readFileSync(VocabBuggy, 'utf8'));
-vocab_correct = eval(fs.readFileSync(VocabCorrect, 'utf8')); 
+vocab_buggy = fs.readFileSync(VocabBuggy, 'utf8');
+vocab_correct = fs.readFileSync(VocabCorrect, 'utf8'); 
 
 var correct_examples = [];
 var correct_files = fs.readdirSync(TokensCorrectDir);

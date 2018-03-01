@@ -45,17 +45,29 @@ files.forEach(file => {
 
 sources.forEach(function(source){
     var text = fs.readFileSync(GeneratedSourceBuggyDir + source + ".js", "utf-8");
-    var tokens = []; 
-    var ast = acorn.parse(text, {
+    var tokens = [];
+    var ast;
+    try
+    {
+      ast = acorn.parse(text, {
        onToken: tokens
-    });
+      });
+    }
+    catch(err)
+    {
+	return;
+    }
 
-    fs.writeFile(ASTBuggyDir + source + "_AST.json", JSON.stringify(ast, null, 2), function (err) {
-	    if (err) throw err;
+//    var ast = acorn.parse(text, {
+//       onToken: tokens
+//    });
+
+    fs.writeFileSync(ASTBuggyDir + source + "_AST.json", JSON.stringify(ast, null, 2), function (err) {
+	    if (err)throw err;
 	    console.log('Created AST for file ' + source);
 	    });
 
-    fs.writeFile(TokenBuggyDir + source + "_Tokens.json", JSON.stringify(tokens, null, 2), function (err) {
+    fs.writeFileSync(TokenBuggyDir + source + "_Tokens.json", JSON.stringify(tokens, null, 2), function (err) {
 	    if (err) throw err;
 	    console.log('Created tokens for file ' + source);
 	    });
@@ -71,16 +83,28 @@ files.forEach(file => {
 sources.forEach(function(source){
     var text = fs.readFileSync(GeneratedSourceCorrectDir + source + ".js", "utf-8");
     var tokens = []; 
-    var ast = acorn.parse(text, {
+    var ast;
+    try
+    {
+      ast = acorn.parse(text, {
        onToken: tokens
-    });
+      });
+    }
+    catch(err)
+    {
+	return;
+    }
 
-    fs.writeFile(ASTCorrectDir + source + "_AST.json", JSON.stringify(ast, null, 2), function (err) {
+//    var ast = acorn.parse(text, {
+//       onToken: tokens
+//    });
+
+    fs.writeFileSync(ASTCorrectDir + source + "_AST.json", JSON.stringify(ast, null, 2), function (err) {
 	    if (err) throw err;
 	    console.log('Created AST for file ' + source);
 	    });
 
-    fs.writeFile(TokenCorrectDir + source + "_Tokens.json", JSON.stringify(tokens, null, 2), function (err) {
+    fs.writeFileSync(TokenCorrectDir + source + "_Tokens.json", JSON.stringify(tokens, null, 2), function (err) {
 	    if (err) throw err;
 	    console.log('Created tokens for file ' + source);
 	    });

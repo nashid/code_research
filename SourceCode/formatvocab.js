@@ -3,8 +3,8 @@ const fs = require('fs');
 const VocabBuggy = './Vocab/vocab.buggy';
 const VocabCorrect = './Vocab/vocab.correct';
 
-vocab_buggy = eval(fs.readFileSync(VocabBuggy, 'utf8'));
-vocab_correct = eval(fs.readFileSync(VocabCorrect, 'utf8'));
+vocab_buggy = fs.readFileSync(VocabBuggy, 'utf8');
+vocab_correct = fs.readFileSync(VocabCorrect, 'utf8');
 
 // Format vocab for model  
 fs.unlinkSync(VocabBuggy);
