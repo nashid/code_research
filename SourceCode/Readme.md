@@ -9,7 +9,7 @@ n=[number of mutations] npm mutate
 
 # Create Training/Dev/Test Data from Tokens
 npm run data  
-Can set duplicated_allowed to filter training data for duplicate patterns  
+Can set duplicated_allowed to filter training data for duplicate patterns (do not set this for real data only for generation of mutations) 
 
 # Generate Vocabulary from Training Data  
 python commonvocab.py [vocab-size]
