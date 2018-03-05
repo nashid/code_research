@@ -1,5 +1,0 @@
-$ . ajax ( { url : string , type : PUT , data : JSON . stringify ( { string : string , string : string , string : string } ) , contentType : application/json , dataType : json } ) ;
-$ . ajax ( { url : string , type : PUT , data : JSON . stringify ( { string : string , string : string } ) , contentType : application/json , dataType : json } ) ;
-$ . ajax ( { url : string , type : PUT , data : JSON . stringify ( { string : string } ) , contentType : application/json , dataType : json } ) ;
-$ . ajax ( { url : string , type : PUT , data : JSON . stringify ( { string : string , string : string , string : string , string : string } ) , contentType : application/json , dataType : json } ) ;
-$ . ajax ( { url : string , type : PUT , data : JSON . stringify ( { string : string , string : string , string : string , string : string , string : string } ) , contentType : application/json , dataType : json } ) ;

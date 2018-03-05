@@ -11,10 +11,11 @@ python -m nmt.nmt \
     --out_dir=./data/nmt_model \
     --encoder_type=bi \
     --optimizer=adam \
-    --learning_rate=0.05 \
-    --num_train_steps=1200 \
+    --learning_rate=0.1 \
+    --batch_size=64 \
+    --num_train_steps=12000 \
     --steps_per_stats=100 \
     --num_layers=2 \
-    --num_units=128 \
-    --dropout=0.2 \
+    --num_units=256 \
+    --dropout=0.3 \
     --metrics=bleu

@@ -43,7 +43,7 @@ buggy_files.forEach(file => {
     buggy_examples.push(name);
 });
 
-duplicates_allowed = false;
+duplicates_allowed = true;
 
 correct_pattern_list = new Set();
 correct_files.forEach(function(file){

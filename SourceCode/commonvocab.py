@@ -2,6 +2,7 @@ import sys
 import nltk
 import io
 
+threshold = 100;
 vocab_size = int(sys.argv[1]);
 
 input_file = io.open('./Vocab/VocabCorpus.correct', mode='r', encoding="utf-8")
@@ -10,9 +11,11 @@ correct_code_corpus = input_file.read()
 allWords = nltk.tokenize.word_tokenize(correct_code_corpus)
 allWordDist = nltk.FreqDist(w for w in allWords)
 mostCommon = allWordDist.most_common(vocab_size)
-words = [i[0] for i in mostCommon if i[1] != 1]
+words = [i[0].encode('utf-8') for i in mostCommon if i[0] >= threshold]
 output_file = open('./Vocab/vocab.correct', 'w')
-output_file.write(str(words))
+for word in words:
+  if len(str(word)) > 1 or (not str(word).isdigit() and not str(word).isalpha()):
+    output_file.write(str(word) + '\n')
 
 input_file = io.open('./Vocab/VocabCorpus.buggy', mode='r', encoding="utf-8")
 buggy_code_corpus = input_file.read()
@@ -20,6 +23,8 @@ buggy_code_corpus = input_file.read()
 allWords = nltk.tokenize.word_tokenize(buggy_code_corpus)
 allWordDist = nltk.FreqDist(w for w in allWords)
 mostCommon = allWordDist.most_common(vocab_size)
-words = [i[0] for i in mostCommon if i[1] > 2]
+words = [i[0].encode('utf-8') for i in mostCommon if i[0] >= threshold]
 output_file = open('./Vocab/vocab.buggy', 'w')
-output_file.write(str(words))
+for word in words:
+  if len(str(word)) > 1 or (not str(word).isdigit() and not str(word).isalpha()):
+    output_file.write(str(word) + '\n')
