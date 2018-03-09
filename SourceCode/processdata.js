@@ -1,48 +1,95 @@
 const fs = require("fs");
 
-const GeneratedSourceCorrectDir = "./GeneratedSourceCorrect/";
-const GeneratedSourceBuggyDir = "./GeneratedSourceBuggy/";
+const TrainSourceCorrectDir = "./TrainSourceCorrect/";
+const TrainSourceBuggyDir = "./TrainSourceBuggy/";
+const TestSourceCorrectDir = "./TestSourceCorrect/";
+const TestSourceBuggyDir = "./TestSourceBuggy/";
+const DevSourceCorrectDir = "./DevSourceCorrect/";
+const DevSourceBuggyDir = "./DevSourceBuggy/";
 
-if(!fs.existsSync(GeneratedSourceBuggyDir)){
-  fs.mkdirSync(GeneratedSourceBuggyDir);
-}
+var dirs = [TrainSourceCorrectDir, TrainSourceBuggyDir, TestSourceCorrectDir, TestSourceBuggyDir, DevSourceCorrectDir, DevSourceBuggyDir];
 
-if(!fs.existsSync(GeneratedSourceCorrectDir)){
-  fs.mkdirSync(GeneratedSourceCorrectDir);
+for(var i in dirs)
+{
+  var dir = dirs[i];
+  if(!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+  }
 }
 
 var dataset = fs.readFileSync("dataset.json");
 var datasetJSON = JSON.parse(dataset);
-var buggy = [];
-var correct = [];
+var buggyTrain = []; 
+var correctTrain = [];
+var buggyTest = []; 
+var correctTest = [];
+var buggyDev = [];
+var correctDev = [];
+
+var examples = [correctTrain, buggyTrain, 
+	correctTest, buggyTest, correctDev, buggyDev];
+var devSplit = 10;
+
 
 for(var i = 0; i< datasetJSON.length; i++)
 {
+  var isDevSet = i % 10 == 0;
+  var isTrainSet = true;
   var changePairs = datasetJSON[i].sliceChangePair;
   for(var j = 0; j < changePairs.length; j++)
   {
     var changePair = changePairs[j];
     var before = changePair.before;
     var after = changePair.after; 
+    var type = changePair.type;   
  
-    buggy.push(before);
-    correct.push(after);
+    if(type === "MUTANT_REPAIR")
+    { 
+      if(isDevSet)
+      {
+        buggyDev.push(before);
+        correctDev.push(after);
+        isTrainSet = false;
+      }
+      else
+      {
+        buggyTrain.push(before);
+        correctTrain.push(after);
+        isTrainSet = true;
+      }
+   }
+    else if(type === "REPAIR")
+    {
+      buggyTest.push(before);
+      correctTest.push(after);
+      isTrainSet = false;
+    }
+    else 
+    {
+        if(isDevSet)
+        {
+          buggyDev.push(before);
+          correctDev.push(after);
+        }
+ 	else if(isTrainSet)
+        {
+          buggyTrain.push(before);
+          correctTrain.push(after);  
+	}
+        else {
+ 	  buggyTest.push(before);
+          correctTest.push(after);
+	} 
+    }
   }
 }
 
-for(var i = 0; i < buggy.length; i++)
-{
-	fs.writeFileSync(GeneratedSourceBuggyDir + 'buggy_' + i + '.js', buggy[i], function (err) {
-			if (err) throw err;
-			console.log('Processed bug' + 'buggy_' + i + '.js');
-			});
-
-}
-
-for(var i = 0; i < correct.length; i++)
-{ 
-	fs.writeFileSync(GeneratedSourceCorrectDir + 'correct_' + i + '.js', correct[i], function (err) {
-			if (err) throw err;
-			console.log('Processed correct' + 'correct_' + i + '.js',);
-			});
+for(var i = 0; i < examples.length; i++){
+  var exampleSet = examples[i];
+  var dir = dirs[i];
+  for(var j = 0; j < exampleSet.length; j++){
+    fs.writeFileSync(dir + j + '.js', exampleSet[j], function (err) {
+	if (err) throw err;
+	console.log('Processed ' + j + '.js' + ' in ' + dir);			});
+  }
 }
