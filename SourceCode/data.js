@@ -3,8 +3,8 @@ const rimraf = require('rimraf');
 
 const DataDir = process.env.fn;
 const DataName = DataDir.replace('Data/', '').toLowerCase();
-const TokensCorrectDir = "./TokensCorrect/";
-const TokensBuggyDir = "./TokensBuggy/";
+const TokensCorrectDir = process.env.correctDir;
+const TokensBuggyDir = process.env.buggyDir;
 const VocabBuggy = './Vocab/vocab.buggy';
 const VocabCorrect = './Vocab/vocab.correct';
 
@@ -39,7 +39,7 @@ correct_files.forEach(file => {
 var buggy_examples = [];
 var buggy_files = fs.readdirSync(TokensBuggyDir);
 buggy_files.forEach(file => {
-    let name = file.slice(0, -8);
+    let name = file.slice(0, -5);
     buggy_examples.push(name);
 });
 
@@ -70,7 +70,7 @@ correct_files.forEach(function(file){
         tokens += tokenCorrect[i].value;
       }
       else {
-        tokens += tokenCorrect[i].type.label;
+        tokens += '@' + tokenCorrect[i].type.label;
       }
     }
    }
@@ -98,7 +98,7 @@ buggy_files.forEach(function(file){
     if(tokenBuggy[i].type.label === 'eof'){
       continue;
     }
-
+   
     if(!tokenBuggy[i].value){
       tokens += tokenBuggy[i].type.label;
     }
@@ -109,7 +109,7 @@ buggy_files.forEach(function(file){
         tokens += tokenBuggy[i].value;
       }
       else {
-        tokens += tokenBuggy[i].type.label;
+        tokens += '@' + tokenBuggy[i].type.label;
       }
     }
    }  

@@ -9,26 +9,16 @@ npm run cleandir
 npm run processdata
 npm run tokenize
 npm run generate_vocab
-python commonvocab.py 450 
+python commonvocab.py 250 
 cp -r './Vocab' '../Model/data/'
 
-fn='./TrainData/' npm run data
+fn='./TrainData/' correctDir='TokensTrainCorrect/' buggyDir='TokensTrainBuggy/' npm run data
 cp -r './TrainData/' '../Model/data/'
 
-#npm run cleandir
-#npm run processdata
-#npm run tokenize
-#npm run generate_vocab
-#python commonvocab.py 5000
-fn='./TestData/' npm run data
+fn='./TestData/' correctDir='TokensTestCorrect/' buggyDir='TokensTestBuggy/' npm run data
 cp -r './TestData/' '../Model/data/'
 
-#npm run cleandir
-#npm run processdata
-#npm run tokenize
-#npm run generate_vocab
-#python commonvocab.py 5000
-fn='./DevData/' npm run data
+fn='./DevData/' correctDir='TokensDevCorrect/' buggyDir='TokensDevBuggy/' npm run data
 cp -r './DevData/' '../Model/data/'
 
 rm -rf './Vocab/'

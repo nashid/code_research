@@ -9,7 +9,7 @@
     "generate_vocab": "node generate_vocab.js",
     "mutate": "node mutate.js",
     "processdata": "node processdata.js",
-    "cleandir": "node cleandir.js",
+    "cleandir": "sh cleandir.sh",
     "data": "node data.js",
     "formatvocab": "node formatvocab.js"
   },

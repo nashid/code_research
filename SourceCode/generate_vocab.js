@@ -2,8 +2,8 @@ const fs = require("fs");
 const rimraf = require('rimraf');
 
 const VocabText = './vocab.txt';
-const TokensCorrectDir = "./TokensCorrect/";
-const TokensBuggyDir = "./TokensBuggy/";
+const TokensBuggyDir = "./TokensTrainBuggy/";
+const TokensCorrectDir = "./TokensTrainCorrect/";
 const VocabDir = "./Vocab/";
 
 if(!fs.existsSync(TokensCorrectDir) || !fs.existsSync(TokensBuggyDir)){
