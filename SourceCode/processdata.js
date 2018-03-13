@@ -39,13 +39,11 @@ for(var i = 0; i< datasetJSON.length; i++)
 
   for(var j = 0; j < changePairs.length; j++)
   {   
-    console.log(changePairs[j].type); 
     if(changePairs[j].type === "REPAIR")
     {
       isTestSet = true;
     }
   }
-  console.log(isTestSet);
 
   for(var j = 0; j < changePairs.length; j++)
   {
