@@ -147,7 +147,7 @@ for(var j in tokens)
 
 		if(tokenStart >= intervalStart && tokenEnd <= intervalEnd)
 		{
-			if(token.type.label === "function")
+			if(token.type.label !== "function")
 			{
 				ignored = true;
 			}
