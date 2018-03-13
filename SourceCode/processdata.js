@@ -33,9 +33,20 @@ var devSplit = 10;
 
 for(var i = 0; i< datasetJSON.length; i++)
 {
-  var isDevSet = i % 10 == 0;
-  var isTrainSet = true;
   var changePairs = datasetJSON[i].sliceChangePair;
+  var isDevSet = i % 10 == 0;
+  var isTestSet = false;
+
+  for(var j = 0; j < changePairs.length; j++)
+  {   
+    console.log(changePairs[j].type); 
+    if(changePairs[j].type === "REPAIR")
+    {
+      isTestSet = true;
+    }
+  }
+  console.log(isTestSet);
+
   for(var j = 0; j < changePairs.length; j++)
   {
     var changePair = changePairs[j];
@@ -43,43 +54,20 @@ for(var i = 0; i< datasetJSON.length; i++)
     var after = changePair.after; 
     var type = changePair.type;   
  
-    if(type === "MUTANT_REPAIR")
+    if(isTestSet)
     { 
-      if(isDevSet)
-      {
-        buggyDev.push(before);
-        correctDev.push(after);
-        isTrainSet = false;
-      }
-      else
-      {
-        buggyTrain.push(before);
-        correctTrain.push(after);
-        isTrainSet = true;
-      }
-   }
-    else if(type === "REPAIR")
-    {
       buggyTest.push(before);
       correctTest.push(after);
-      isTrainSet = false;
     }
-    else 
+    else if(isDevSet)
     {
-        if(isDevSet)
-        {
-          buggyDev.push(before);
-          correctDev.push(after);
-        }
- 	else if(isTrainSet)
-        {
-          buggyTrain.push(before);
-          correctTrain.push(after);  
-	}
-        else {
- 	  buggyTest.push(before);
-          correctTest.push(after);
-	} 
+      buggyDev.push(before);
+      correctDev.push(after);
+    }
+    else
+    {
+      buggyTrain.push(before);
+      correctTrain.push(after);
     }
   }
 }
