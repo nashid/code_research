@@ -1,5 +1,6 @@
 const fs = require("fs");
 const acorn = require("acorn");
+const walk = require("acorn/dist/walk");
 const rimraf = require('rimraf');
 
 const TrainSourceCorrectDir = "./TrainSourceCorrect/";
@@ -66,6 +67,29 @@ for(var i in code_sources) {
 
 function process(source){
 	var text = fs.readFileSync(code_dir + source + ".js", "utf-8");
+	var parsed = parse(text);
+	if(parsed === null)
+	{
+		return;
+	}
+
+	var tokens = parsed.tokens;
+	var ast = parsed.ast;	
+
+	fs.writeFileSync(astList[i] + source + "_AST.json", JSON.stringify(ast, null, 2), function (err) {
+			if (err)throw err;
+			console.log('Created AST for file ' + source);
+			});
+
+	fs.writeFileSync(tokenList[i] + source + "_Tokens.json", JSON.stringify(tokens, null, 2), function (err) {
+			if (err) throw err;
+			console.log('Created tokens for file ' + source);
+			});
+}
+
+function parse(text)
+{
+
 	var tokens = [];
 	var ast;
 	try
@@ -77,51 +101,65 @@ onToken: tokens
 catch(err)
 {
 	//skipping unparsable react elements
-	return;
+	return null;
 }
 
-fs.writeFileSync(astList[i] + source + "_AST.json", JSON.stringify(ast, null, 2), function (err) {
-		if (err)throw err;
-		console.log('Created AST for file ' + source);
+var intervals = [];
+
+walk.simple(acorn.parse(text), {
+		Function(node) {
+		var isOverlapping = false;
+		for(var j = 0; j < intervals.length; j++)
+		{
+		if(intervals[j].start <= node.start
+				&& intervals[j].end >= node.end)
+		{
+		isOverlapping = true;
+		}
+
+		}
+		if(!isOverlapping){
+		intervals.push({'start': node.start, 'end': node.end });
+		}
+		}
 		});
 
-var ftokens = abstractFunctions(tokens);
-fs.writeFileSync(tokenList[i] + source + "_Tokens.json", JSON.stringify(ftokens, null, 2), function (err) {
-		if (err) throw err;
-		console.log('Created tokens for file ' + source);
-		});
-}
-
-function abstractFunctions(utokens)
+var ftokens = [];
+for(var j in tokens)
 {
-	var intervals = [];
-loop1:
-	for(var i = 0; i < utokens.length; i++)
+	var token = tokens[j];
+	var ignored = false;
+	for(var i = 0; i < intervals.length; i++)
 	{
-		if(utokens[i].type.label === "function"){
-loop2:                       
-			for(var j = 0; j < intervals.length; j++)
-			{
-				if(intervals[j].start < utokens[j].start
-						&& intervals[j].end > utokens[j].end)
-				{
-					break loop2;
-				}
+		var tokenStart = parseInt(token.start);
+		var tokenEnd = parseInt(token.end);
+		var intervalStart = parseInt(intervals[i].start);
+		var intervalEnd = parseInt(intervals[i].end);
+		
+		//if(token.type.label === "function")
+		//{
+		//	console.log("Start: " + token.start);
+		//	console.log("End: " + token.end);
+		//	console.log("Interval: " + intervals[i].start + " , "+ intervals[i].end);
+		//	console.log("Start in: " + (parseInt(tokens[j].start) >= parseInt(intervals[i].start)));
+		//	console.log("End in: " + (parseInt(tokens[j].end) <= parseInt(intervals[i].end)));
+		//}
 
+		if(tokenStart >= intervalStart && tokenEnd <= intervalEnd)
+		{
+			if(token.type.label === "function")
+			{
+				ignored = true;
 			}
-			intervals.push({'start': utokens[j].start, 'end': utokens[j].end });
+			break;
 		}
 	}
 
-	var ftokens = utokens;
-	for(var i = 0; i < intervals.length; i++)
+	if(!ignored)
 	{
-		var length = utokens.length;    
-		var tokensB = utokens.slice(0, intervals[i].start);
-		var tokensA = utokens.slice(intervals[i].end + 1, length);
-		var tokens = tokensB.concat(tokensA);
-		ftokens = tokens;	 
+		ftokens.push(tokens[j]);
 	}
+}
 
-	return ftokens;
+return {'tokens': ftokens, 'ast': ast};
 }
