@@ -82,9 +82,44 @@ onToken: tokens
 				console.log('Created AST for file ' + source);
 				});
 
-fs.writeFileSync(tokenList[i] + source + "_Tokens.json", JSON.stringify(tokens, null, 2), function (err) {
+var ftokens = abstractFunctions(tokens);
+fs.writeFileSync(tokenList[i] + source + "_Tokens.json", JSON.stringify(ftokens, null, 2), function (err) {
 		if (err) throw err;
 		console.log('Created tokens for file ' + source);
 		});
 });
+}
+
+function abstractFunctions(utokens)
+{
+	var intervals = [];
+loop1:
+	for(var i = 0; i < utokens.length; i++)
+	{
+		if(utokens[i].type.label === "function"){
+loop2:                       
+			for(var j = 0; j < intervals.length; j++)
+			{
+				if(intervals[j].start < utokens[j].start
+						&& intervals[j].end > utokens[j].end)
+				{
+					break loop2;
+				}
+
+			}
+			intervals.push({'start': utokens[j].start, 'end': utokens[j].end });
+		}
+	}
+
+	var ftokens = utokens;
+	for(var i = 0; i < intervals.length; i++)
+	{
+		var length = utokens.length;    
+		var tokensB = utokens.slice(0, intervals[i].start);
+		var tokensA = utokens.slice(intervals[i].end + 1, length);
+		var tokens = tokensB.concat(tokensA);
+		ftokens = tokens;	 
+	}
+
+	return ftokens;
 }
