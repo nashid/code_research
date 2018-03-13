@@ -61,33 +61,35 @@ for(var i in code_sources) {
 			sources.push(name);
 			});
 
-	sources.forEach(function(source){
-			var text = fs.readFileSync(code_dir + source + ".js", "utf-8");
-			var tokens = [];
-			var ast;
-			try
-			{
-			ast = acorn.parse(text, {
+	sources.forEach(process);
+}
+
+function process(source){
+	var text = fs.readFileSync(code_dir + source + ".js", "utf-8");
+	var tokens = [];
+	var ast;
+	try
+	{
+		ast = acorn.parse(text, {
 onToken: tokens
 });
-			}
-			catch(err)
-			{
-			//skipping unparsable react elements
-			return;
-			}
+}
+catch(err)
+{
+	//skipping unparsable react elements
+	return;
+}
 
-			fs.writeFileSync(astList[i] + source + "_AST.json", JSON.stringify(ast, null, 2), function (err) {
-				if (err)throw err;
-				console.log('Created AST for file ' + source);
-				});
+fs.writeFileSync(astList[i] + source + "_AST.json", JSON.stringify(ast, null, 2), function (err) {
+		if (err)throw err;
+		console.log('Created AST for file ' + source);
+		});
 
 var ftokens = abstractFunctions(tokens);
 fs.writeFileSync(tokenList[i] + source + "_Tokens.json", JSON.stringify(ftokens, null, 2), function (err) {
 		if (err) throw err;
 		console.log('Created tokens for file ' + source);
 		});
-});
 }
 
 function abstractFunctions(utokens)
