@@ -9,7 +9,7 @@ npm run cleandir
 npm run processdata
 npm run tokenize
 npm run generate_vocab
-python commonvocab.py 250 
+python commonvocab.py 150 
 cp -r './Vocab' '../Model/data/'
 
 fn='./TrainData/' correctDir='TokensTrainCorrect/' buggyDir='TokensTrainBuggy/' npm run data
