@@ -7,6 +7,7 @@ const util = require("util");
 const fs = require("fs");
 const esprima = require("esprima");
 const esabstraction = require("./utilities/estree-abstraction.js");
+const Vocab = require("./utilities/estree-vocab.js");
 const escodegen = require("escodegen");
 
 /**
@@ -24,48 +25,92 @@ if(!fs.existsSync(jsonFile)) {
 }
 let data = JSON.parse(fs.readFileSync(jsonFile)).data;
 
-/* Iterate through the source code file changes. */
-for(let i = 0; i < data.length; i++) {
-	let sourceChange = data[i];
+let vocab = buildVocab();
+console.log(vocab.getTopN(5));
 
-	/* Iterate through nominal/repair sequence pairs. */
-	for(let j = 0; j < sourceChange.sliceChangePair.length; j++) {
+/* *****************
+ * Helper functions. 
+ * *****************/
 
-		let pair = sourceChange.sliceChangePair[j];
+function buildVocab() {
 
-    let beforeAST = null;
-    let afterAST = null;
+	let vocab = new Vocab();
 
-		try {
-			beforeAST = esprima.parse(pair.before);
-			afterAST = esprima.parse(pair.after);
-		} catch (e) {
-			continue; // Skip stuff that can't be parsed.
+	/* Iterate through the source code file changes. */
+	for(let i = 0; i < data.length; i++) {
+		let sourceChange = data[i];
+
+		/* Iterate through nominal/repair sequence pairs. */
+		for(let j = 0; j < sourceChange.sliceChangePair.length; j++) {
+
+			let pair = sourceChange.sliceChangePair[j];
+
+			let beforeAST = null;
+			let afterAST = null;
+
+			try {
+				beforeAST = esprima.parse(pair.before);
+				afterAST = esprima.parse(pair.after);
+			} catch (e) {
+				continue; // Skip stuff that can't be parsed.
+			}
+
+			vocab.add(afterAST);
+
 		}
 
-		/* Set the abstraction depth. */
-		let abstractionDepth = 0;
-		if(isFunctionAnalysis(beforeAST) && isFunctionAnalysis(afterAST)) {
-			abstractionDepth = 1;
+	}
+
+	return vocab;
+
+}
+
+function buildSequenceSet() {
+
+	/* Iterate through the source code file changes. */
+	for(let i = 0; i < data.length; i++) {
+		let sourceChange = data[i];
+
+		/* Iterate through nominal/repair sequence pairs. */
+		for(let j = 0; j < sourceChange.sliceChangePair.length; j++) {
+
+			let pair = sourceChange.sliceChangePair[j];
+
+			let beforeAST = null;
+			let afterAST = null;
+
+			try {
+				beforeAST = esprima.parse(pair.before);
+				afterAST = esprima.parse(pair.after);
+			} catch (e) {
+				continue; // Skip stuff that can't be parsed.
+			}
+
+			/* Set the abstraction depth. */
+			let abstractionDepth = 0;
+			if(isFunctionAnalysis(beforeAST) && isFunctionAnalysis(afterAST)) {
+				abstractionDepth = 1;
+			}
+
+			/* Visit the nodes in the AST. */
+			esabstraction(beforeAST, {
+				FunctionDeclaration: { type: 'Identifier', name: '@function' },
+				FunctionExpression: { type: 'Identifier', name: '@function' },
+				ObjectExpression: { type: 'Identifier', name: '@objectlit' }
+			}, abstractionDepth)
+			esabstraction(afterAST, {
+				FunctionDeclaration: { type: 'Identifier', name: '@function' },
+				FunctionExpression: { type: 'Identifier', name: '@function' },
+				ObjectExpression: { type: 'Identifier', name: '@objectlit' }
+			}, abstractionDepth)
+
+			let beforeCode = escodegen.generate(beforeAST);
+			let afterCode = escodegen.generate(afterAST);
+			console.log(beforeCode);
+			console.log(afterCode);
+			//console.log(JSON.stringify(afterAST, null, 4));
+
 		}
-
-		/* Visit the nodes in the AST. */
-		esabstraction(beforeAST, {
-			FunctionDeclaration: { type: 'Identifier', name: '@function' },
-			FunctionExpression: { type: 'Identifier', name: '@function' },
-			ObjectExpression: { type: 'Identifier', name: '@objectlit' }
-		}, abstractionDepth)
-		esabstraction(afterAST, {
-			FunctionDeclaration: { type: 'Identifier', name: '@function' },
-			FunctionExpression: { type: 'Identifier', name: '@function' },
-			ObjectExpression: { type: 'Identifier', name: '@objectlit' }
-		}, abstractionDepth)
-
-		let beforeCode = escodegen.generate(beforeAST);
-		let afterCode = escodegen.generate(afterAST);
-		console.log(beforeCode);
-		console.log(afterCode);
-		//console.log(JSON.stringify(afterAST, null, 4));
 
 	}
 
