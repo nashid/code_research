@@ -1,9 +1,8 @@
 /* Tracks common vocab. */
 
-const esprima = require("esprima");
 const walk = require("estree-walk");
 
-function Vocab (){
+function Vocab () {
 
 	let vocab = new Map();
 
@@ -33,7 +32,7 @@ function Vocab (){
 	 */
 	this.print = function() {
 		console.log(vocab);	
-	}	
+	}
 
 	/**
 	 * @return the top {@code count} entries in the vocab.

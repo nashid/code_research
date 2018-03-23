@@ -8,6 +8,7 @@ const fs = require("fs");
 const esprima = require("esprima");
 const esabstraction = require("./utilities/estree-abstraction.js");
 const Vocab = require("./utilities/estree-vocab.js");
+const esapplyvocab = require("./utilities/estree-applyvocab.js");
 const escodegen = require("escodegen");
 
 /**
@@ -25,14 +26,14 @@ if(!fs.existsSync(jsonFile)) {
 }
 let data = JSON.parse(fs.readFileSync(jsonFile)).data;
 
-let vocab = buildVocab();
-console.log(vocab.getTopN(5));
+let vocab = buildVocab(data);
+buildAbstractSequenceSet(data, vocab.getTopN(5));
 
 /* *****************
  * Helper functions. 
  * *****************/
 
-function buildVocab() {
+function buildVocab(data) {
 
 	let vocab = new Vocab();
 
@@ -65,7 +66,7 @@ function buildVocab() {
 
 }
 
-function buildSequenceSet() {
+function buildAbstractSequenceSet(data, topN) {
 
 	/* Iterate through the source code file changes. */
 	for(let i = 0; i < data.length; i++) {
@@ -92,7 +93,7 @@ function buildSequenceSet() {
 				abstractionDepth = 1;
 			}
 
-			/* Visit the nodes in the AST. */
+			/* Abstract nested functions and object literals. */
 			esabstraction(beforeAST, {
 				FunctionDeclaration: { type: 'Identifier', name: '@function' },
 				FunctionExpression: { type: 'Identifier', name: '@function' },
@@ -104,11 +105,16 @@ function buildSequenceSet() {
 				ObjectExpression: { type: 'Identifier', name: '@objectlit' }
 			}, abstractionDepth)
 
+			/* Abstract terms not in the vocabulary. */
+			esapplyvocab(beforeAST, topN);
+			esapplyvocab(afterAST, topN);
+
 			let beforeCode = escodegen.generate(beforeAST);
 			let afterCode = escodegen.generate(afterAST);
+
+			/* Let's see what we've got. */
 			console.log(beforeCode);
 			console.log(afterCode);
-			//console.log(JSON.stringify(afterAST, null, 4));
 
 		}
 
