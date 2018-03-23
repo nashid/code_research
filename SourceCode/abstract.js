@@ -6,7 +6,7 @@
 const util = require("util");
 const fs = require("fs");
 const esprima = require("esprima");
-const esabstraction = require("./abstract/estree-abstraction.js");
+const esabstraction = require("./utilities/estree-abstraction.js");
 const escodegen = require("escodegen");
 
 /* Read the sequence pairs from JSON. */
