@@ -1,12 +1,17 @@
 /* Replaces nodes of certain types with a new abstract node.
  * Adapted from https://github.com/jamen/estree-walk/blob/master/index.js */
 
-module.exports = walk
-walk.step = step
+module.exports = walk;
+walk.step = step;
 
 const blacklistedKeys = [
   'parent',
-]
+];
+
+const incDepthStmt = new Set([ 
+	'BlockStatement',
+	'ObjectExpression'
+]);
 
 function walk (node, abstractions, minDepth) {
 	
@@ -45,7 +50,8 @@ function step (node, depth, queue, depthQueue, abstractions, minDepth) {
 			else {
 				/* Otherwise push the node. */
 				queue.push(child)
-				depthQueue.push(depth + 1);
+				incDepthStmt.has(child.type) && depth++;
+				depthQueue.push(depth);
 			}
     }
 
@@ -60,7 +66,8 @@ function step (node, depth, queue, depthQueue, abstractions, minDepth) {
 					else {
 						/* Otherwise push the node. */
 						queue.push(item)
-						depthQueue.push(depth + 1);
+						incDepthStmt.has(item.type) && depth++;
+						depthQueue.push(depth);
 					}
         }
       }

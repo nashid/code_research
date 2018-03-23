@@ -9,6 +9,13 @@ const esprima = require("esprima");
 const esabstraction = require("./utilities/estree-abstraction.js");
 const escodegen = require("escodegen");
 
+/**
+ * Helper function for checking if the AST includes one function.
+ */
+function isFunctionAnalysis(ast) {
+	return ast.body.length === 1 && ast.body[0].type === 'FunctionDeclaration';
+}
+
 /* Read the sequence pairs from JSON. */
 let jsonFile = process.argv[2];
 if(!fs.existsSync(jsonFile)) {
@@ -36,17 +43,23 @@ for(let i = 0; i < data.length; i++) {
 			continue; // Skip stuff that can't be parsed.
 		}
 
+		/* Set the abstraction depth. */
+		let abstractionDepth = 0;
+		if(isFunctionAnalysis(beforeAST) && isFunctionAnalysis(afterAST)) {
+			abstractionDepth = 1;
+		}
+
 		/* Visit the nodes in the AST. */
 		esabstraction(beforeAST, {
 			FunctionDeclaration: { type: 'Identifier', name: '@function' },
 			FunctionExpression: { type: 'Identifier', name: '@function' },
 			ObjectExpression: { type: 'Identifier', name: '@objectlit' }
-		}, 1)
+		}, abstractionDepth)
 		esabstraction(afterAST, {
 			FunctionDeclaration: { type: 'Identifier', name: '@function' },
 			FunctionExpression: { type: 'Identifier', name: '@function' },
 			ObjectExpression: { type: 'Identifier', name: '@objectlit' }
-		}, 1)
+		}, abstractionDepth)
 
 		let beforeCode = escodegen.generate(beforeAST);
 		let afterCode = escodegen.generate(afterAST);
