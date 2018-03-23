@@ -39,9 +39,9 @@ function Vocab (){
 	 * @return the top {@code count} entries in the vocab.
 	 */
 	this.getTopN = function(count) {
-		let topN = [];
+		let topN = new Set();
 		vocab.forEach(function (value, key) {
-			if(value >= count) topN.push(key);
+			if(value >= count) topN.add(key);
 		});
 		return topN;
 	}
