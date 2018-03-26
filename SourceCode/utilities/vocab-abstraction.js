@@ -26,10 +26,10 @@ function step (node, queue, topn) {
   var before = queue.length
 
 	let abstractNodes = {
-		Identifier: { type: 'Identifier', name: '@identifier' },
-		NumberLiteral: { type: 'Identifier', name: '@numlit' },
-		StringLiteral: { type: 'Identifier', name: '@stringlit' },
-		RegExLiteral: { type: 'Identifier', name: '@regexlit' }
+		Identifier: { type: 'Identifier', name: '__abs__identifier' },
+		NumberLiteral: { type: 'Identifier', name: '__abs__numlit' },
+		StringLiteral: { type: 'Identifier', name: '__abs__stringlit' },
+		RegExLiteral: { type: 'Identifier', name: '__abs__regexlit' }
 	}
 
   // Enumerate keys for possible children

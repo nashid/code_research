@@ -11,8 +11,6 @@ function Vocab () {
 	 * Add the vocab from the AST to the vocab map.
 	 */
 	this.add = function(ast) {
-		console.log("Adding AST to vocabulary...");	
-
 		walk(ast, {
 				Identifier: function(node, stop) { 
 					let count = vocab.get(node.name);
