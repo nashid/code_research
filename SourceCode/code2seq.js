@@ -18,7 +18,8 @@ if(!fs.existsSync(jsonFile) || !sequenceOut || !vocabOut) {
 let data = JSON.parse(fs.readFileSync(jsonFile)).data;
 
 /* Build the vocabulary. */
-let vocab = VocabFactory.build(data);
+let vocab = VocabFactory.build(data, 20);
+vocab.print();
 
 /* Build the abstracted sequence set. */
 let abstractions = AbstractionFactory.build(data, vocab.getTopN(5));

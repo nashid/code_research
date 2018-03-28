@@ -25,14 +25,12 @@ function Abstraction () {
 		/* Clean old files. */
 		if (!fs.existsSync("output"))
 			fs.mkdirSync("output");
-		fs.writeFile("sequences.buggy", '');
-		fs.writeFile("sequences.correct", '');
-		fs.writeFile("vocab", '');
+		fs.writeFile("output/training.buggy", '');
+		fs.writeFile("output/training.correct", '');
+		fs.writeFile("output/vocab", '');
 
 		/* Generate the new sequence files. */
 		for(let i = 0; i < pairs.length; i++) {
-			console.log(pairs[i].before);
-			console.log(pairs[i].after);
 			beforeAST = esprima.parse(pairs[i].before, { tokens: true });
 			afterAST = esprima.parse(pairs[i].after, { tokens: true });
 			fs.appendFileSync("output/training.buggy", tokens2Sequence(beforeAST.tokens, vocab));
@@ -63,7 +61,7 @@ function Abstraction () {
 			sequence.push(token);
 			vocab.add(token);
 		}
-		return sequence.join(" ");
+		return sequence.join(" ") + "\n";
 	}
 
 }

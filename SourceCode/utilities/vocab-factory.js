@@ -2,10 +2,12 @@
 
 const esprima = require("esprima");
 const walk = require("estree-walk");
+const TrieHeap = require("./trietree.js");
 
-function Vocab () {
+function Vocab (vocabSize) {
 
 	let vocab = new Map();
+	let topvocab = new TrieHeap(vocabSize);
 
 	/**
 	 * Add the vocab from the AST to the vocab map.
@@ -16,12 +18,14 @@ function Vocab () {
 					let count = vocab.get(node.name);
 					if(count) vocab.set(node.name, count + 1);
 					else vocab.set(node.name, 1);
+					topvocab.incrementWordCount(node.name);
 				},
 				Literal: function(node, stop) { 
 					if(node.value === Object(node.value)) return; // Avoid RegEx
 					let count = vocab.get(node.raw);
 					if(count) vocab.set(node.raw, count + 1);
 					else vocab.set(node.raw, 1);
+					topvocab.incrementWordCount(node.raw);
 				}
 			});
 	}
@@ -31,6 +35,7 @@ function Vocab () {
 	 */
 	this.print = function() {
 		console.log(vocab);	
+		topvocab.printHeap();
 	}
 
 	/**
@@ -46,9 +51,9 @@ function Vocab () {
 
 }
 
-function buildVocab(data) {
+function buildVocab(data, vocabSize) {
 
-	let vocab = new Vocab();
+	let vocab = new Vocab(vocabSize);
 
 	/* Iterate through the source code file changes. */
 	for(let i = 0; i < data.length; i++) {
