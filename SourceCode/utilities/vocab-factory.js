@@ -6,7 +6,6 @@ const TrieHeap = require("./trietree.js");
 
 function Vocab (vocabSize) {
 
-	let vocab = new Map();
 	let topvocab = new TrieHeap(vocabSize);
 
 	/**
@@ -15,16 +14,10 @@ function Vocab (vocabSize) {
 	this.add = function(ast) {
 		walk(ast, {
 				Identifier: function(node, stop) { 
-					let count = vocab.get(node.name);
-					if(count) vocab.set(node.name, count + 1);
-					else vocab.set(node.name, 1);
 					topvocab.incrementWordCount(node.name);
 				},
 				Literal: function(node, stop) { 
 					if(node.value === Object(node.value)) return; // Avoid RegEx
-					let count = vocab.get(node.raw);
-					if(count) vocab.set(node.raw, count + 1);
-					else vocab.set(node.raw, 1);
 					topvocab.incrementWordCount(node.raw);
 				}
 			});
@@ -34,7 +27,6 @@ function Vocab (vocabSize) {
 	 * @return the vocabulary as a string.
 	 */
 	this.print = function() {
-		console.log(vocab);	
 		topvocab.printHeap();
 	}
 
@@ -43,8 +35,8 @@ function Vocab (vocabSize) {
 	 */
 	this.getTopN = function(count) {
 		let topN = new Set();
-		vocab.forEach(function (value, key) {
-			if(value >= count) topN.add(key);
+		topvocab.forEach(function (word) {
+			topN.add(word);
 		});
 		return topN;
 	}

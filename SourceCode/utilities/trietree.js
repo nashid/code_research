@@ -168,4 +168,10 @@ TrieMinHeap.prototype.printHeap = function() {
 	console.log("-------");
 }
 
+TrieMinHeap.prototype.forEach = function(f) {
+	for(let i = 0; i < this.heapSize; i++) {
+		f(this.heap[i].word);
+	}
+}
+
 module.exports = TrieMinHeap;
